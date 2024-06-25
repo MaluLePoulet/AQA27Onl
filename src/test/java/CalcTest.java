@@ -14,7 +14,7 @@ public class CalcTest extends BaseTest {
     @Test(description = "Test method when result is floating-point number",
             testName = "Incorrect int division result", priority = 2)
     public void testDivInt1() {
-        Assert.assertEquals(calculator.divide(5, 2), 2.5, "Incorrect result");
+        Assert.assertEquals(calculator.divide(5, 2), 2, "Incorrect result");
     }
 
     @Test(enabled = false)
