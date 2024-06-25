@@ -2,68 +2,43 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class CalcTest extends BaseTest {
 
-    @Test
-    public void testSum() {
-        Assert.assertEquals(calculator.add(2, 3), 5, "Incorrect result");
+    @Test(description = "Valid test with int values",
+            testName = "Correct division of int values", priority = 1)
+    public void testDivInt() {
+        Assert.assertEquals(calculator.divide(6, 2), 3);
+    }
+
+    @Test(description = "Test method when result is floating-point number",
+            testName = "Incorrect int division result", priority = 2)
+    public void testDivInt1() {
+        Assert.assertEquals(calculator.divide(5, 2), 2.5, "Incorrect result");
     }
 
     @Test(enabled = false)
-    public void testSum1() {
-        Assert.assertEquals(calculator.add(2, 3), 5, "Incorrect result");
+    public void testDivInt2() {
+        Assert.assertEquals(calculator.divide(34, 3), 11.333, "Incorrect result");
     }
 
-    @Test(description = "Test with description")
-    public void testSum2() {
-        Assert.assertEquals(calculator.add(2, 3), 5, "Incorrect result");
+    @Test(description = "Valid test with double values",
+            testName = "Correct division of double values", priority = 1)
+    public void testDivDouble() {
+        Assert.assertEquals(calculator.divide(6.2, 3.1), 2.0);
     }
 
-    @Test(testName = "Test with Name")
-    public void testSum3() {
-        Assert.assertEquals(calculator.add(2, 3), 5, "Incorrect result");
+    @Test(testName = "Division by zero (double)", dependsOnMethods = "testDivDouble", alwaysRun = true,
+            invocationCount = 3, invocationTimeOut = 1000)
+    public void testDivDouble1() {
+        Assert.assertEquals(calculator.divide(2.0, 0), Double.POSITIVE_INFINITY);
+        Assert.assertEquals(calculator.divide(-2.0, 0), Double.NEGATIVE_INFINITY);
+        Assert.assertEquals(calculator.divide(0.0, 0), Double.NaN);
     }
 
-    @Test(timeOut = 1000)
-    public void waitLongTimeTest() throws InterruptedException {
-        Thread.sleep(900);
-    }
-
-    @Test(invocationCount = 4, threadPoolSize = 2)
-    public void invocationCountTest() {
-        System.out.println(Thread.currentThread().getName());
-        Assert.assertTrue(true);
-    }
-
-    @Test(invocationCount = 4, invocationTimeOut = 1000)
-    public void invocationCountTest1() throws InterruptedException {
-        System.out.println(Thread.currentThread().getName());
-        Thread.sleep(500);
-        Assert.assertTrue(true);
-
-    }
-
-    @Test
-    public void exceptionTest1() {
-        // ТАК ДЕЛАТЬ НЕ НАДО
-        try {
-            List list = null;
-            int size = list.size();
-        } catch (NullPointerException ex) {
-            Assert.assertTrue(true);
-        }
-    }
-
-    // ТАК ДЕЛАТЬ НАДО
-    @Test(expectedExceptions = NullPointerException.class)
-    public void exceptionTest2() {
-        List list = null;
-        int size = list.size();
+    @Test(testName = "Division by zero (int)",
+            expectedExceptions = ArithmeticException.class, dependsOnMethods = "testDivInt")
+    public void testDivIntByZero() {
+        calculator.divide(2, 0);
     }
 }
-
