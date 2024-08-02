@@ -1,5 +1,6 @@
 package pages;
 
+import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,11 +11,17 @@ public class LoginPage extends BasePage {
     private final By EMAIL_INPUT_LOCATOR = By.id("name");
     private final By PASSWORD_INPUT_LOCATOR = By.id("password");
     private final By LOGIN_BUTTON_LOCATOR = By.id("button_primary");
-
+    private final By ERROR_TEXT_LOCATOR = By.className("error-text");
+    private final By ERROR_FIELD_TEXT_LOCATOR = By.className("loginpage-message");
 
     //Блок инициализации
     public LoginPage(WebDriver driver) {
-        pageDriver = driver;
+        super(driver);
+    }
+
+    @Override
+    protected By getPageIdentifier() {
+        return LOGIN_BUTTON_LOCATOR;
     }
 
     //Блок атомарных методов
@@ -30,6 +37,14 @@ public class LoginPage extends BasePage {
         return pageDriver.findElement(LOGIN_BUTTON_LOCATOR);
     }
 
+    public WebElement getErrorTextElement() {
+        return pageDriver.findElement(ERROR_TEXT_LOCATOR);
+    }
+
+    public WebElement getErrorFieldTextElement() {
+        return pageDriver.findElement(ERROR_FIELD_TEXT_LOCATOR);
+    }
+
     public void setEmailValue(String value) {
         getEmailInput().sendKeys(value);
     }
@@ -41,11 +56,6 @@ public class LoginPage extends BasePage {
     public void clickLogin() {
         getLoginButton().click();
     }
-
-
     //Блок функциональных методов
-    public void login(String email, String password) {
-        getEmailInput().sendKeys(email);
-
-    }
+//перенесли в степы
 }
