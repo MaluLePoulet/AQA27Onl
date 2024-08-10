@@ -4,16 +4,20 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.TopMenuPage;
 
 public class CheckoutInformationPage extends BasePage {
     private final By FIRST_NAME_INPUT_LOCATOR = By.id("first-name");
     private final By LAST_NAME_INPUT_LOCATOR = By.id("last-name");
     private final By ZIP_CODE_INPUT_LOCATOR = By.id("postal-code");
     private final By CONTINUE_BUTTON_LOCATOR = By.id("continue");
+    public TopMenuPage topMenuPage;
 
 
     public CheckoutInformationPage(WebDriver driver) {
         super(driver);
+
+        topMenuPage = new TopMenuPage(driver);
     }
 
 

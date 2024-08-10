@@ -12,9 +12,13 @@ public class InventoryPage extends BasePage {
     private final By ADD_TO_CART_SLB_BUTTON_LOCATOR = By.id("add-to-cart-sauce-labs-backpack");
     private final By REMOVE_FROM_CART_SLB_BUTTON_LOCATOR = By.id("remove-sauce-labs-backpack");
 
+    public TopMenuPage topMenuPage;
+
 
     public InventoryPage(WebDriver driver) {
         super(driver);
+
+        topMenuPage = new TopMenuPage(driver);
     }
 
 

@@ -13,9 +13,8 @@ public class CheckoutTest extends BaseTest {
     public void successfulCheckoutTest() {
         userStep.successfulLogin(ReadProperties.usernameStandard(), ReadProperties.password());
         itemStep.addItemToCart();
-        TopMenuPage topMenuPage = new TopMenuPage(driver);
-        topMenuPage.clickShoppingCartElement();
         CartPage cartPage = new CartPage(driver);
+        cartPage.topMenuPage.clickShoppingCartElement();
         cartPage.clickCheckoutButton();
         Assert.assertEquals
                 (checkoutStep.successfulCheckout().getCheckoutCompleteMessageElement().getText(),
