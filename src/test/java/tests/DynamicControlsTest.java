@@ -18,7 +18,7 @@ public class DynamicControlsTest extends BaseTest {
         waitsService.waitVisibilityOf(By.id("message"));
         Assert.assertTrue(waitsService.invisibilityOf(checkbox));
 
-        WebElement inputField = waitsService.waitVisibilityOf(By.xpath("//*[@type='text']"));
+        WebElement inputField = waitsService.presenceOfElementLocated(By.xpath("//*[@type='text']"));
         //Assert.assertFalse(inputField.isEnabled());
         Assert.assertTrue(waitsService.attributeToBe(inputField, "disabled", "true"));
 
