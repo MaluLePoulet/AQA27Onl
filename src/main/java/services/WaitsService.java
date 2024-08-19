@@ -42,6 +42,7 @@ public class WaitsService {
     public WebElement waitVisibilityOf(WebElement webElement) {
         return wait.until(ExpectedConditions.visibilityOf(webElement));
     }
+
     public WebElement presenceOfElementLocated(By by) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
@@ -54,9 +55,13 @@ public class WaitsService {
         return wait.until(ExpectedConditions.alertIsPresent());
     }
 
+    public Boolean attributeToBe(By by, String attribute, String value) {
+        return wait.until(ExpectedConditions.attributeToBe(by, attribute, value));
+    }
 
-
-
+    public Boolean attributeToBe(WebElement webElement, String attribute, String value) {
+        return wait.until(ExpectedConditions.attributeToBe(webElement, attribute, value));
+    }
 
 
     public WebElement fluentWaitForElement(By by) {
