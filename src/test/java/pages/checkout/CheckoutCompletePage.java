@@ -16,7 +16,6 @@ public class CheckoutCompletePage extends BasePage {
         topMenuPage = new TopMenuPage(driver);
     }
 
-
     @Override
     protected By getPageIdentifier() {
         return CHECKOUT_COMPLETE_MESSAGE_LOCATOR;

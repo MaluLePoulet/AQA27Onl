@@ -20,9 +20,7 @@ public class BaseTest {
         driver = new BrowsersService().getDriver();
 
         userStep = new UserStep(driver);
-
         itemStep = new ItemStep(driver);
-
         checkoutStep = new CheckoutStep(driver);
 
         driver.get(ReadProperties.getUrl());

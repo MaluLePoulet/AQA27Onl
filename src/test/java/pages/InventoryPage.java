@@ -14,13 +14,11 @@ public class InventoryPage extends BasePage {
 
     public TopMenuPage topMenuPage;
 
-
     public InventoryPage(WebDriver driver) {
         super(driver);
 
         topMenuPage = new TopMenuPage(driver);
     }
-
 
     @Override
     protected By getPageIdentifier() {

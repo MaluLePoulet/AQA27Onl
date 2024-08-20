@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import pages.CartPage;
 import pages.InventoryPage;
 
-
 public class ItemStep extends BaseStep {
 
     public ItemStep(WebDriver driver) {

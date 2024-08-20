@@ -5,7 +5,6 @@ import configuration.ReadProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CartPage;
-import pages.TopMenuPage;
 
 public class CheckoutTest extends BaseTest {
 
@@ -16,6 +15,7 @@ public class CheckoutTest extends BaseTest {
         CartPage cartPage = new CartPage(driver);
         cartPage.topMenuPage.clickShoppingCartElement();
         cartPage.clickCheckoutButton();
+
         Assert.assertEquals
                 (checkoutStep.successfulCheckout().getCheckoutCompleteMessageElement().getText(),
                         "Thank you for your order!");

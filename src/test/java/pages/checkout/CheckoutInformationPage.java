@@ -20,7 +20,6 @@ public class CheckoutInformationPage extends BasePage {
         topMenuPage = new TopMenuPage(driver);
     }
 
-
     @Override
     protected By getPageIdentifier() {
         return CONTINUE_BUTTON_LOCATOR;

@@ -16,7 +16,6 @@ public class CartPage extends BasePage {
         topMenuPage = new TopMenuPage(driver);
     }
 
-
     @Override
     protected By getPageIdentifier() {
         return CHECKOUT_BUTTON_LOCATOR;

@@ -11,11 +11,9 @@ public class LoginPage extends BasePage {
     private final By LOGIN_BUTTON_LOCATOR = By.id("login-button");
     private final By ERROR_MESSAGE_ELEMENT_LOCATOR = By.className("error-message-container");
 
-
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-
 
     @Override
     protected By getPageIdentifier() {
