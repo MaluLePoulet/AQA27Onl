@@ -10,13 +10,12 @@ import org.testng.annotations.Test;
 public class AlertTest extends BaseTest {
 
     @Test
-    public void infoAlertTest() throws InterruptedException { // как пример, что можно добавить обработчик, но так не надо делать, тесты должны быть не программами
+    public void infoAlertTest() { // как пример, что можно добавить обработчик, но так не надо делать, тесты должны быть не программами
         driver.get("http://the-internet.herokuapp.com/javascript_alerts");
 
         WebElement button = driver.findElement(By.xpath("//button[. = 'Click for JS Confirm']"));
 
         driver.findElement(By.xpath("//button[. = 'Click for JS Alert']")).click();
-        Thread.sleep(2000);
 
         if (waitsService.alertIsPresent() != null) {
             Alert alert = driver.switchTo().alert();
@@ -24,8 +23,6 @@ public class AlertTest extends BaseTest {
             alert.accept();
         }
         button.click();
-
-        Thread.sleep(2000);
     }
 
     @Test

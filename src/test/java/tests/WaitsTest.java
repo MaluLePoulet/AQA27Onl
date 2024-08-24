@@ -23,7 +23,6 @@ public class WaitsTest extends BaseTest {
 
         WebElement loading = driver.findElement(By.id("loading"));
         Assert.assertTrue(loading.isDisplayed());
-        Thread.sleep(10000);
         Assert.assertFalse(loading.isDisplayed());
         Assert.assertTrue(driver.findElement(By.id("finish")).isDisplayed());
     }
