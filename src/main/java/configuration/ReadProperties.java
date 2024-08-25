@@ -23,8 +23,28 @@ public class ReadProperties {
         return properties.getProperty("browser");
     }
 
-    public static String username() {
-        return properties.getProperty("username");
+    public static String usernameStandard() {
+        return properties.getProperty("username_standard");
+    }
+
+    public static String usernameLockedOut() {
+        return properties.getProperty("username_locked_out");
+    }
+
+    public static String usernameProblem() {
+        return properties.getProperty("username_problem");
+    }
+
+    public static String usernamePerformanceGlitch() {
+        return properties.getProperty("username_performance_glitch");
+    }
+
+    public static String usernameError() {
+        return properties.getProperty("username_error");
+    }
+
+    public static String usernameVisual() {
+        return properties.getProperty("username_visual");
     }
 
     public static String password() {

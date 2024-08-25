@@ -5,16 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-
 public class LoginPage extends BasePage {
-    //Блок описания локаторов для элемента
-    private final By EMAIL_INPUT_LOCATOR = By.id("name");
+    private final By USERNAME_INPUT_LOCATOR = By.id("user-name");
     private final By PASSWORD_INPUT_LOCATOR = By.id("password");
-    private final By LOGIN_BUTTON_LOCATOR = By.id("button_primary");
-    private final By ERROR_TEXT_LOCATOR = By.className("error-text");
-    private final By ERROR_FIELD_TEXT_LOCATOR = By.className("loginpage-message");
+    private final By LOGIN_BUTTON_LOCATOR = By.id("login-button");
+    private final By ERROR_MESSAGE_ELEMENT_LOCATOR = By.className("error-message-container");
 
-    //Блок инициализации
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -24,38 +20,31 @@ public class LoginPage extends BasePage {
         return LOGIN_BUTTON_LOCATOR;
     }
 
-    //Блок атомарных методов
-    public WebElement getEmailInput() {
-        return pageDriver.findElement(EMAIL_INPUT_LOCATOR);
+    public WebElement getUsernameInput() {
+        return pageDriver.findElement(USERNAME_INPUT_LOCATOR);
     }
 
     public WebElement getPasswordInput() {
         return pageDriver.findElement(PASSWORD_INPUT_LOCATOR);
     }
 
-    public WebElement getLoginButton() {
+    public WebElement getButton() {
         return pageDriver.findElement(LOGIN_BUTTON_LOCATOR);
     }
 
-    public WebElement getErrorTextElement() {
-        return pageDriver.findElement(ERROR_TEXT_LOCATOR);
+    public WebElement getErrorMessageElement() {
+        return pageDriver.findElement(ERROR_MESSAGE_ELEMENT_LOCATOR);
     }
 
-    public WebElement getErrorFieldTextElement() {
-        return pageDriver.findElement(ERROR_FIELD_TEXT_LOCATOR);
-    }
-
-    public void setEmailValue(String value) {
-        getEmailInput().sendKeys(value);
+    public void setUsernameValue(String value) {
+        getUsernameInput().sendKeys(value);
     }
 
     public void setPasswordValue(String value) {
         getPasswordInput().sendKeys(value);
     }
 
-    public void clickLogin() {
-        getLoginButton().click();
+    public void clickLoginButton() {
+        getButton().click();
     }
-    //Блок функциональных методов
-//перенесли в степы
 }
