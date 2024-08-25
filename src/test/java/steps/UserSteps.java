@@ -13,6 +13,7 @@ public class UserSteps extends BaseStep {
         super(driver);
     }
 
+    @Step(value = "Успешный логин")
     public DashboardPage successfulLogin(String username, String password) {
         login(username, password);
         return dashboardPage;
