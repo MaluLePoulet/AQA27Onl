@@ -6,18 +6,14 @@ import elements.Input;
 import elements.UIElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 
 public class LoginPage extends BasePage {
-    //Блок описания локаторов для элемента
     private final By EMAIL_INPUT_LOCATOR = By.id("name");
     private final By PASSWORD_INPUT_LOCATOR = By.id("password");
     private final By LOGIN_BUTTON_LOCATOR = By.id("button_primary");
     private final By ERROR_TEXT_LOCATOR = By.className("error-text");
     private final By ERROR_FIELD_TEXT_LOCATOR = By.className("loginpage-message");
 
-    //Блок инициализации
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -27,13 +23,12 @@ public class LoginPage extends BasePage {
         return LOGIN_BUTTON_LOCATOR;
     }
 
-    //Блок атомарных методов
     public Input getEmailInput() {
         return new Input(pageDriver, EMAIL_INPUT_LOCATOR);
     }
 
     public Input getPasswordInput() {
-        return new Input (pageDriver, PASSWORD_INPUT_LOCATOR);
+        return new Input(pageDriver, PASSWORD_INPUT_LOCATOR);
     }
 
     public Button getLoginButton() {
@@ -44,8 +39,8 @@ public class LoginPage extends BasePage {
         return new UIElement(pageDriver, ERROR_TEXT_LOCATOR);
     }
 
-    public WebElement getErrorFieldTextElement() {
-        return pageDriver.findElement(ERROR_FIELD_TEXT_LOCATOR);
+    public UIElement getErrorFieldTextElement() {
+        return new UIElement(pageDriver, ERROR_FIELD_TEXT_LOCATOR);
     }
 
     public void setEmailValue(String value) {
@@ -59,6 +54,4 @@ public class LoginPage extends BasePage {
     public void clickLogin() {
         getLoginButton().click();
     }
-    //Блок функциональных методов
-//перенесли в степы
 }

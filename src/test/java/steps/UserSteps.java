@@ -8,7 +8,6 @@ import pages.LoginPage;
 
 public class UserSteps extends BaseStep {
 
-
     public UserSteps(WebDriver driver) {
         super(driver);
     }

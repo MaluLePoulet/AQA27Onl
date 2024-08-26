@@ -10,7 +10,6 @@ import services.BrowsersService;
 import services.WaitsService;
 import steps.UserSteps;
 import utils.InvokedListener;
-import utils.Listener;
 
 @Listeners(InvokedListener.class)
 public class BaseTest {
@@ -27,6 +26,7 @@ public class BaseTest {
         userSteps = new UserSteps(driver);
 
         driver.get(ReadProperties.getUrl());
+        userSteps.successfulLogin(ReadProperties.username(),ReadProperties.password());
     }
 
     @AfterMethod
