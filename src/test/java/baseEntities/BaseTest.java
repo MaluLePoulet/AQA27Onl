@@ -10,7 +10,6 @@ import services.BrowsersService;
 import services.WaitsService;
 import steps.UserSteps;
 import utils.InvokedListener;
-import utils.Listener;
 
 @Listeners(InvokedListener.class)
 public class BaseTest {

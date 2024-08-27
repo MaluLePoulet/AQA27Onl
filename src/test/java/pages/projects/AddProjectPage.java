@@ -18,6 +18,7 @@ public class AddProjectPage extends BaseProjectPage {
     public Button getAddProjectButton() {
         return new Button(pageDriver, ADD_PROJECT_BUTTON_LOCATOR);
     }
+
     public RadioButton getProjectTypeRadioButton() {
         return new RadioButton(pageDriver, PROJECT_TYPE_RADIO_BUTTON_LOCATOR);
     }
