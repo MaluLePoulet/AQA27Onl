@@ -43,12 +43,16 @@ public class LoginPage extends BasePage {
         return new UIElement(pageDriver, ERROR_FIELD_TEXT_LOCATOR);
     }
 
-    public void setEmailValue(String value) {
+    public LoginPage setEmailValue(String value) {
         getEmailInput().write(value);
+
+        return this;
     }
 
-    public void setPasswordValue(String value) {
+    public LoginPage setPasswordValue(String value) {
         getPasswordInput().write(value);
+
+        return this;
     }
 
     public void clickLogin() {

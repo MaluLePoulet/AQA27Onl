@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import services.BrowsersService;
 import services.WaitsService;
+import steps.ProjectSteps;
 import steps.UserSteps;
 import utils.InvokedListener;
 
@@ -15,6 +16,7 @@ import utils.InvokedListener;
 public class BaseTest {
     protected WebDriver driver;
     protected UserSteps userSteps;
+    protected ProjectSteps projectSteps;
     protected WaitsService waitsService;
 
     @BeforeMethod
@@ -24,6 +26,7 @@ public class BaseTest {
         iTestContext.setAttribute("WebDriver", driver);
 
         userSteps = new UserSteps(driver);
+        projectSteps = new ProjectSteps(driver);
 
         driver.get(ReadProperties.getUrl());
         userSteps.successfulLogin(ReadProperties.username(),ReadProperties.password());
