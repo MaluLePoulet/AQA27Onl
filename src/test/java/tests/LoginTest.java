@@ -2,6 +2,7 @@ package tests;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
+import models.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
@@ -26,21 +27,29 @@ public class LoginTest extends BaseTest {
     @Test
     public void shortSuccessfulLoginTest() {
         Assert.assertTrue
-                (userSteps.successfulLogin(ReadProperties.username(), ReadProperties.password()).isPageOpen());
+                (userSteps.successfulLogin(admin)
+                        .isPageOpen());
     }
 
     @Test
     public void incorrectEmailLoginTest() {
-        Assert.assertEquals(userSteps.incorrectLogin
-                        ("hdfgds", ReadProperties.password()).getErrorFieldTextElement().getText(),
+        User incorrectEmailUser = new User();
+        incorrectEmailUser.setUsername(ReadProperties.username());
+        incorrectEmailUser.setPassword("shbdhfas");
+
+        Assert.assertEquals(userSteps.incorrectLogin(incorrectEmailUser)
+                        .getErrorTextElement().getText(),
                 "Email/Login or Password is incorrect. Please try again.",
                 "Неверное сообщение об ошибке");
     }
 
     @Test
     public void incorrectPasswordLoginTest() {
-        Assert.assertEquals(userSteps.incorrectLogin
-                        (ReadProperties.username(), "ahsdjas").getErrorTextElement().getText(),
+        User incorrectPswUser = new User();
+        incorrectPswUser.setUsername(ReadProperties.username());
+        incorrectPswUser.setPassword("jfhesbd");
+        Assert.assertEquals(userSteps.incorrectLogin(incorrectPswUser)
+                        .getErrorTextElement().getText(),
                 "Email/Login or Password is incorrect. Please try again.",
                 "Неверное сообщение об ошибке");
     }

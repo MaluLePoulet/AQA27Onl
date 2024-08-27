@@ -44,10 +44,6 @@ public class LoginPage extends BasePage {
         return new UIElement(pageDriver, ERROR_TEXT_LOCATOR);
     }
 
-    public UIElement getErrorFieldTextElement() {
-        return new UIElement(pageDriver, ERROR_FIELD_TEXT_LOCATOR);
-    }
-
     public void setEmailValue(String value) {
         getEmailInput().write(value);
     }

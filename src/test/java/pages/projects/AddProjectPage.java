@@ -22,6 +22,10 @@ public class AddProjectPage extends BaseProjectPage {
         return new RadioButton(pageDriver, PROJECT_TYPE_RADIO_BUTTON_LOCATOR);
     }
 
+    public AddProjectPage setProjectName(String projectName) {
+        return this;
+    }
+
     public void openPageByUrl() {
         super.load();
     }

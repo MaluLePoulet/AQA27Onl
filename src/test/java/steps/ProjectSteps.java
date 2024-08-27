@@ -1,8 +1,19 @@
 package steps;
 
-public class ProjectSteps {
+import baseEntities.BaseStep;
+import models.Project;
+import org.openqa.selenium.WebDriver;
+import pages.projects.AddProjectPage;
 
-    public void addProject(String projectName) {
+public class ProjectSteps extends BaseStep{
+
+    public ProjectSteps(WebDriver driver) {
+        super(driver);
+    }
+
+    public void addProject(Project project) {
+        AddProjectPage addProjectPage = new AddProjectPage(driver);
+        addProjectPage.setProjectName(project.getName());
 
     }
 
