@@ -23,6 +23,7 @@ public class LoginTest extends BaseTest {
     }
 
     //пример ос степами
+    @Test
     public void shortSuccessfulLoginTest() {
         Assert.assertTrue
                 (userSteps.successfulLogin(ReadProperties.username(), ReadProperties.password()).isPageOpen());

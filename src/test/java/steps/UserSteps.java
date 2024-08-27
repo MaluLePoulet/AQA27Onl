@@ -15,16 +15,18 @@ public class UserSteps extends BaseStep {
     @Step(value = "Успешный логин")
     public DashboardPage successfulLogin(String username, String password) {
         login(username, password);
-        return dashboardPage;
+        return new DashboardPage(driver);
     }
 
     @Step(value = "Некорректный логин")
     public LoginPage incorrectLogin(String username, String password) {
         login(username, password);
-        return loginPage;
+        return new LoginPage(driver);
     }
 
     private void login(String username, String password) {
+        loginPage = new LoginPage(driver);
+
         loginPage.setEmailValue(username);
         loginPage.setPasswordValue(password);
         loginPage.clickLogin();

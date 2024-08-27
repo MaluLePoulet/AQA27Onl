@@ -26,7 +26,6 @@ public class BaseTest {
         userSteps = new UserSteps(driver);
 
         driver.get(ReadProperties.getUrl());
-        userSteps.successfulLogin(ReadProperties.username(),ReadProperties.password());
     }
 
     @AfterMethod

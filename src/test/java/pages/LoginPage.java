@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BasePage {
     private final By EMAIL_INPUT_LOCATOR = By.id("name");
     private final By PASSWORD_INPUT_LOCATOR = By.id("password");
-    private final By LOGIN_BUTTON_LOCATOR = By.id("button_primary");
+    private static final By LOGIN_BUTTON_LOCATOR = By.id("button_primary");
     private final By ERROR_TEXT_LOCATOR = By.className("error-text");
     private final By ERROR_FIELD_TEXT_LOCATOR = By.className("loginpage-message");
 
