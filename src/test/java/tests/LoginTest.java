@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.LoginPage;
-import steps.UserSteps;
 
 
 public class LoginTest extends BaseTest {
@@ -31,7 +30,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void incorrectEmailLoginTest() {
-        ;
         Assert.assertEquals(userSteps.incorrectLogin
                         ("hdfgds", ReadProperties.password()).getErrorFieldTextElement().getText(),
                 "Email/Login or Password is incorrect. Please try again.",
