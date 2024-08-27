@@ -11,6 +11,7 @@ import services.BrowsersService;
 import services.WaitsService;
 import steps.ProjectSteps;
 import steps.UserSteps;
+import utils.Director;
 import utils.InvokedListener;
 
 @Listeners(InvokedListener.class)
@@ -34,9 +35,7 @@ public class BaseTest {
 
         driver.get(ReadProperties.getUrl());
 
-        admin = new User();
-        admin.setUsername(ReadProperties.username());
-        admin.setPassword(ReadProperties.password());
+        admin = Director.getAdmin();
     }
 
     @AfterMethod
