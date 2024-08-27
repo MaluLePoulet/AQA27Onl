@@ -21,6 +21,11 @@ public class AddTestCasePage extends BasePage {
         return HEADER_TITLE_LABEL_LOCATOR;
     }
 
+    @Override
+    protected String getPagePath() {
+        return pagePath;
+    }
+
     public UIElement getHeaderTitle() {
         return new UIElement(pageDriver, HEADER_TITLE_LABEL_LOCATOR);
     }
@@ -34,6 +39,6 @@ public class AddTestCasePage extends BasePage {
     }
 
     public void openPageByUrl() {
-        super.openPageByUrl(pagePath);
+        super.load();
     }
 }

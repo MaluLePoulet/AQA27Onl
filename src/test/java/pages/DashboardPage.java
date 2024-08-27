@@ -24,7 +24,12 @@ public class DashboardPage extends BasePage {
         return HEADER_TITLE_LABEL_LOCATOR;
     }
 
+    @Override
+    protected String getPagePath() {
+        return pagePath;
+    }
+
     public void openPageByUrl() {
-        super.openPageByUrl(pagePath);
+        super.load();
     }
 }

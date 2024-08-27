@@ -18,6 +18,11 @@ public class SideMenuPage extends BasePage {
         return SIDEBAR_LOCATOR;
     }
 
+    @Override
+    protected String getPagePath() {
+        return "";
+    }
+
     public Button getAddTestCaseButton() {
         return new Button(pageDriver, ADD_TEST_CASE_BUTTON_LOCATOR);
     }

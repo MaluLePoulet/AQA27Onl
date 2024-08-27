@@ -17,6 +17,11 @@ public class BaseProjectPage extends BasePage {
         return NAME_INPUT_LOCATOR;
     }
 
+    @Override
+    protected String getPagePath() {
+        return "";
+    }
+
     public Input getNameInput() {
         return new Input(pageDriver, NAME_INPUT_LOCATOR);
     }

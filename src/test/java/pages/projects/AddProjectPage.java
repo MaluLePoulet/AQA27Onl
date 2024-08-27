@@ -23,6 +23,6 @@ public class AddProjectPage extends BaseProjectPage {
     }
 
     public void openPageByUrl() {
-        super.openPageByUrl(pagePath);
+        super.load();
     }
 }
