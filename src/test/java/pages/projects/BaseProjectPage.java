@@ -4,6 +4,7 @@ import baseEntities.BasePage;
 import elements.Input;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class BaseProjectPage extends BasePage {
     private final By NAME_INPUT_LOCATOR = By.id("name");
@@ -13,8 +14,8 @@ public class BaseProjectPage extends BasePage {
     }
 
     @Override
-    protected By getPageIdentifier() {
-        return NAME_INPUT_LOCATOR;
+    protected WebElement getPageIdentifier() {
+        return pageDriver.findElement(NAME_INPUT_LOCATOR);
     }
 
     public Input getNameInput() {

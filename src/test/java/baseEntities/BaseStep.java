@@ -2,17 +2,17 @@ package baseEntities;
 
 import org.openqa.selenium.WebDriver;
 import pages.DashboardPage;
-import pages.LoginPage;
+import pages.LoginPageWithPageFactory;
 
 public class BaseStep {
     protected WebDriver driver;
-    protected LoginPage loginPage;
+    protected LoginPageWithPageFactory loginPageWithPageFactory;
     protected DashboardPage dashboardPage;
 
 
     public BaseStep(WebDriver driver) {
         this.driver = driver;
-        loginPage = new LoginPage(driver);
+        loginPageWithPageFactory = new LoginPageWithPageFactory(driver);
         dashboardPage = new DashboardPage(driver);
     }
 }

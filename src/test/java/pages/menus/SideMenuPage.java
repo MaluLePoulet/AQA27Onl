@@ -4,6 +4,7 @@ import baseEntities.BasePage;
 import elements.Button;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class SideMenuPage extends BasePage {
     private final By SIDEBAR_LOCATOR = By.id("sidebar");
@@ -14,8 +15,8 @@ public class SideMenuPage extends BasePage {
     }
 
     @Override
-    protected By getPageIdentifier() {
-        return SIDEBAR_LOCATOR;
+    protected WebElement getPageIdentifier() {
+        return pageDriver.findElement(SIDEBAR_LOCATOR);
     }
 
     public Button getAddTestCaseButton() {

@@ -3,6 +3,7 @@ package pages;
 import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.menus.SideMenuPage;
 import pages.menus.TopMenuPage;
 
@@ -20,8 +21,8 @@ public class DashboardPage extends BasePage {
     }
 
     @Override
-    protected By getPageIdentifier() {
-        return HEADER_TITLE_LABEL_LOCATOR;
+    protected WebElement getPageIdentifier() {
+        return pageDriver.findElement(HEADER_TITLE_LABEL_LOCATOR);
     }
 
     public void openPageByUrl() {

@@ -4,7 +4,7 @@ import baseEntities.BaseStep;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import pages.DashboardPage;
-import pages.LoginPage;
+import pages.LoginPageWithPageFactory;
 
 public class UserSteps extends BaseStep {
 
@@ -19,14 +19,14 @@ public class UserSteps extends BaseStep {
     }
 
     @Step(value = "Некорректный логин")
-    public LoginPage incorrectLogin(String username, String password) {
+    public LoginPageWithPageFactory incorrectLogin(String username, String password) {
         login(username, password);
-        return loginPage;
+        return loginPageWithPageFactory;
     }
 
     private void login(String username, String password) {
-        loginPage.setEmailValue(username);
-        loginPage.setPasswordValue(password);
-        loginPage.clickLogin();
+        loginPageWithPageFactory.setEmailValue(username);
+        loginPageWithPageFactory.setPasswordValue(password);
+        loginPageWithPageFactory.clickLogin();
     }
 }

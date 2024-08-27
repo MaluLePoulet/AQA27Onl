@@ -5,6 +5,7 @@ import elements.DropDown;
 import elements.UIElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class AddTestCasePage extends BasePage {
     private final static String pagePath = "/index.php?/cases/add/1";
@@ -17,8 +18,8 @@ public class AddTestCasePage extends BasePage {
     }
 
     @Override
-    protected By getPageIdentifier() {
-        return HEADER_TITLE_LABEL_LOCATOR;
+    protected WebElement getPageIdentifier() {
+        return pageDriver.findElement(HEADER_TITLE_LABEL_LOCATOR);
     }
 
     public UIElement getHeaderTitle() {
