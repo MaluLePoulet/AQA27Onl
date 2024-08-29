@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import pages.DashboardPage;
 import pages.LoginPage;
 
-import static org.bouncycastle.cms.RecipientId.password;
-
 public class UserSteps extends BaseStep {
 
     public UserSteps(WebDriver driver) {
@@ -18,7 +16,6 @@ public class UserSteps extends BaseStep {
     @Step(value = "Успешный логин")
     public DashboardPage successfulLogin(User user) {
         login(user);
-
         return new DashboardPage(driver);
     }
 

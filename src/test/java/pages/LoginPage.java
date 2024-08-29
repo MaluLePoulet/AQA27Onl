@@ -23,11 +23,6 @@ public class LoginPage extends BasePage {
         return LOGIN_BUTTON_LOCATOR;
     }
 
-    @Override
-    protected String getPagePath() {
-        return "";
-    }
-
     public Input getEmailInput() {
         return new Input(pageDriver, EMAIL_INPUT_LOCATOR);
     }

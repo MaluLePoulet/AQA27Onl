@@ -27,4 +27,3 @@ public class Checkbox {
         setFlag(false);
     }
 }
-

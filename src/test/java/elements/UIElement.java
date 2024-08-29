@@ -27,7 +27,6 @@ public class UIElement implements WebElement {
         this.webElement = webElement;
     }
 
-
     @Override
     public void click() {
         try {

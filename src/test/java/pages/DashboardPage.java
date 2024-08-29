@@ -15,8 +15,8 @@ public class DashboardPage extends BasePage {
     public DashboardPage(WebDriver driver) {
         super(driver);
 
-       // topMenuPage = new TopMenuPage(driver);
-       // sideMenuPage = new SideMenuPage(driver);
+        topMenuPage = new TopMenuPage(driver);
+        sideMenuPage = new SideMenuPage(driver);
     }
 
     @Override
@@ -24,12 +24,7 @@ public class DashboardPage extends BasePage {
         return HEADER_TITLE_LABEL_LOCATOR;
     }
 
-    @Override
-    protected String getPagePath() {
-        return pagePath;
-    }
-
     public void openPageByUrl() {
-        super.load();
+        super.openPageByUrl(pagePath);
     }
 }

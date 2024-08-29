@@ -33,6 +33,6 @@ public class EditProjectPage extends BaseProjectPage {
     }
 
     public void openPageByUrl() {
-        super.load();
+        super.openPageByUrl(pagePath);
     }
 }

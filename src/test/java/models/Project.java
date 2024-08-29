@@ -3,20 +3,11 @@ package models;
 import java.util.Objects;
 
 public class Project {
-    private int id;
     private String name;
     private String announcement;
-    private boolean isShowAnnouncement;
+    private boolean isShowAnnouncementFlag;
     private int projectType;
-    private boolean isEnableTCApprovals;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private boolean isTCApprovalsEnabled;
 
     public String getName() {
         return name;
@@ -34,12 +25,12 @@ public class Project {
         this.announcement = announcement;
     }
 
-    public boolean isShowAnnouncement() {
-        return isShowAnnouncement;
+    public boolean isShowAnnouncementFlag() {
+        return isShowAnnouncementFlag;
     }
 
-    public void setShowAnnouncement(boolean showAnnouncement) {
-        isShowAnnouncement = showAnnouncement;
+    public void setShowAnnouncementFlag(boolean showAnnouncementFlag) {
+        isShowAnnouncementFlag = showAnnouncementFlag;
     }
 
     public int getProjectType() {
@@ -50,12 +41,12 @@ public class Project {
         this.projectType = projectType;
     }
 
-    public boolean isEnableTCApprovals() {
-        return isEnableTCApprovals;
+    public boolean isTCApprovalsEnabled() {
+        return isTCApprovalsEnabled;
     }
 
     public void setEnableTCApprovals(boolean enableTCApprovals) {
-        isEnableTCApprovals = enableTCApprovals;
+        isTCApprovalsEnabled = enableTCApprovals;
     }
 
     @Override
@@ -63,9 +54,9 @@ public class Project {
         return "Project{" +
                 "name='" + name + '\'' +
                 ", announcement='" + announcement + '\'' +
-                ", isShowAnnouncement=" + isShowAnnouncement +
+                ", isShowAnnouncement=" + isShowAnnouncementFlag +
                 ", projectType=" + projectType +
-                ", isEnableTCApprovals=" + isEnableTCApprovals +
+                ", isEnableTCApprovals=" + isTCApprovalsEnabled +
                 '}';
     }
 
@@ -74,11 +65,11 @@ public class Project {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
-        return isShowAnnouncement == project.isShowAnnouncement && projectType == project.projectType && isEnableTCApprovals == project.isEnableTCApprovals && Objects.equals(name, project.name) && Objects.equals(announcement, project.announcement);
+        return isShowAnnouncementFlag == project.isShowAnnouncementFlag && projectType == project.projectType && isTCApprovalsEnabled == project.isTCApprovalsEnabled && Objects.equals(name, project.name) && Objects.equals(announcement, project.announcement);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, announcement, isShowAnnouncement, projectType, isEnableTCApprovals);
+        return Objects.hash(name, announcement, isShowAnnouncementFlag, projectType, isTCApprovalsEnabled);
     }
 }
