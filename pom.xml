@@ -18,6 +18,7 @@
         <suiteFileName>TestNG1.xml</suiteFileName>
         <allure.version>2.29.0</allure.version>
         <aspectj.version>1.9.20.1</aspectj.version>
+        <faker.version>1.0.2</faker.version>
         <allure.results.directory>target/allure-results</allure.results.directory>
     </properties>
 
@@ -41,14 +42,12 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -60,6 +59,13 @@
             <artifactId>allure-testng</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${faker.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -10,6 +10,11 @@ public class Button {
         this.uiElement = new UIElement(driver, by);
     }
 
+    public Button(WebDriver driver, UIElement element) {
+        this.uiElement = new UIElement(driver, element);
+    }
+
+
     public void click() {
         uiElement.click();
     }

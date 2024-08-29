@@ -101,11 +101,12 @@ public class UIElement implements WebElement {
     }
 
     public List<UIElement> findUIElements(By by) {
-        ArrayList<UIElement> list = new ArrayList<>();
-        for (WebElement element : webElement.findElements(by)) {
-            list.add(new UIElement(driver, element));
+        List<UIElement> elements = new ArrayList<>();
+
+        for (WebElement element : findElements(by)) {
+            elements.add(new UIElement(driver, element));
         }
-        return list;
+        return elements;
     }
 
     @Override

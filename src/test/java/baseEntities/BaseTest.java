@@ -1,5 +1,6 @@
 package baseEntities;
 
+import com.github.javafaker.Faker;
 import configuration.ReadProperties;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
@@ -18,12 +19,15 @@ public class BaseTest {
     protected UserSteps userSteps;
     protected ProjectSteps projectSteps;
     protected WaitsService waitsService;
+    protected Faker faker;
 
     @BeforeMethod
     public void setUp(ITestContext iTestContext) {
         driver = new BrowsersService().getDriver();
         waitsService = new WaitsService(driver);
+        faker = new Faker();
         iTestContext.setAttribute("WebDriver", driver);
+
 
         userSteps = new UserSteps(driver);
         projectSteps = new ProjectSteps(driver);
