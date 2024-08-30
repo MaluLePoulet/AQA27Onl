@@ -15,6 +15,7 @@ public class ProjectSteps extends BaseStep{
         AddProjectPage addProjectPage = new AddProjectPage(driver);
         addProjectPage.setProjectName(project.getName());
 
+        System.out.println(project.getId());
     }
 
     public void editProject(String projectName) {

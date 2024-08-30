@@ -10,8 +10,11 @@ public class AddProjectTest extends BaseTest {
     public void addProjectTest() {
         Project project = new Project();
         project.setName("adad");
+        project.setAnnouncement("sajdja");
 
         projectSteps.addProject(project);
+
+        System.out.println(project);
     }
 
 }
