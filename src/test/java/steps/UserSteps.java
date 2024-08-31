@@ -26,8 +26,6 @@ public class UserSteps extends BaseStep {
     }
 
     private void login(User user) {
-        loginPage = new LoginPage(driver);
-
         loginPage.setEmailValue(user.getUsername());
         loginPage.setPasswordValue(user.getPassword());
         loginPage.clickLogin();

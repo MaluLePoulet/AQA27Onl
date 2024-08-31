@@ -10,6 +10,7 @@ public class SideMenuPage extends BasePage {
     private final By SIDEBAR_LOCATOR = By.id("sidebar");
     private final By ADD_TEST_CASE_BUTTON_LOCATOR = By.id("sidebar-cases-add");
     private final By ADD_PROJECT_BUTTON = By.id("sidebar-projects-add");
+    private final By ADD_MILESTONE_BUTTON = By.id("sidebar-milestones-add");
 
     public SideMenuPage(WebDriver driver) {
         super(driver);
@@ -28,8 +29,17 @@ public class SideMenuPage extends BasePage {
         return new Button(pageDriver,ADD_PROJECT_BUTTON);
     }
 
+    public Button getAddMilestoneButton() {
+        return new Button(pageDriver,ADD_MILESTONE_BUTTON);
+    }
+
     public AddProjectPage clickAddProjectButton() {
         getAddProjectButton().click();
+        return new AddProjectPage(pageDriver);
+    }
+
+    public AddProjectPage clickAddMilestoneButton() {
+        getAddMilestoneButton().click();
         return new AddProjectPage(pageDriver);
     }
 }

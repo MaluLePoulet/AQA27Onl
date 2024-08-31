@@ -141,8 +141,9 @@ public class UIElement implements WebElement {
         return webElement.getScreenshotAs(target);
     }
 
-    public void moveToElement() {
+    public UIElement moveToElement() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", webElement);
+        return this;
     }
 
     public void jsClick() {

@@ -3,10 +3,10 @@ package steps;
 import baseEntities.BaseStep;
 import models.Project;
 import org.openqa.selenium.WebDriver;
-import pages.administration.ProjectsPage;
+import pages.overview.ProjectsPage;
 import pages.projects.AddProjectPage;
 
-public class ProjectSteps extends BaseStep{
+public class ProjectSteps extends BaseStep {
 
     public ProjectSteps(WebDriver driver) {
         super(driver);

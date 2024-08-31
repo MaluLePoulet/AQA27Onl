@@ -14,7 +14,7 @@ public class AddProjectTest extends BaseTest {
         project.setName(faker.commerce().productName());
         project.setAnnouncement(faker.backToTheFuture().quote());
         project.setShowAnnouncementFlag(faker.bool().bool());
-        project.setProjectType(faker.number().numberBetween(0,3));
+        project.setProjectType(faker.number().numberBetween(0, 3));
         project.setEnableTCApprovals(faker.bool().bool());
 
         SideMenuPage sideMenuPage = new SideMenuPage(driver);

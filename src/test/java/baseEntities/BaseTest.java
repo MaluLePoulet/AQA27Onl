@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import services.BrowsersService;
 import services.WaitsService;
+import steps.MilestoneSteps;
 import steps.ProjectSteps;
 import steps.UserSteps;
 import utils.InvokedListener;
@@ -19,6 +20,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected UserSteps userSteps;
     protected ProjectSteps projectSteps;
+    protected MilestoneSteps milestoneSteps;
     protected WaitsService waitsService;
     protected Faker faker;
 
@@ -34,6 +36,7 @@ public class BaseTest {
 
         userSteps = new UserSteps(driver);
         projectSteps = new ProjectSteps(driver);
+        milestoneSteps = new MilestoneSteps(driver);
 
         driver.get(ReadProperties.getUrl());
 
