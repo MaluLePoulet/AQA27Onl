@@ -4,10 +4,14 @@ import baseEntities.BasePage;
 import elements.Checkbox;
 import elements.Input;
 import elements.RadioButton;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class BaseProjectPage extends BasePage {
+    private Logger logger = LogManager.getLogger(this);
+
     private final By NAME_INPUT_LOCATOR = By.id("name");
     private final By ANNOUNCEMENT_INPUT_LOCATOR = By.id("announcement_display");
     private final By SHOW_ANNOUNCEMENT_CHECKBOX_LOCATOR = By.id("show_announcement");
@@ -45,31 +49,37 @@ public class BaseProjectPage extends BasePage {
 
     public BaseProjectPage setNameInput(String text) {
         getNameInput().write(text);
+        logger.debug(text);
         return this;
     }
 
     public BaseProjectPage setAnnouncementInput(String text) {
         getAnnouncementInput().write(text);
+        logger.debug(text);
         return this;
     }
 
     public BaseProjectPage setShowAnnouncementCheckbox(boolean flag) {
         getShowAnnouncementCheckbox().setFlag(flag);
+        logger.debug(flag);
         return this;
     }
 
     public BaseProjectPage selectProjectTypeByText(String text) {
         getProjectTypeRadioButton().selectByText(text);
+        logger.debug(text);
         return this;
     }
 
     public BaseProjectPage selectProjectTypeByIndex(int index) {
         getProjectTypeRadioButton().selectByIndex(index);
+        logger.debug(index);
         return this;
     }
 
     public BaseProjectPage setTCApprovalsCheckbox(boolean flag) {
         getTCApprovalsCheckbox().setFlag(flag);
+        logger.debug(flag);
         return this;
     }
 

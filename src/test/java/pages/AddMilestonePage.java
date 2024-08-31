@@ -4,11 +4,15 @@ import baseEntities.BasePage;
 import elements.Button;
 import elements.Checkbox;
 import elements.Input;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.overview.MilestonesPage;
 
 public class AddMilestonePage extends BasePage {
+    private Logger logger = LogManager.getLogger(this);
+
     private final By NAME_INPUT_LOCATOR = By.id("name");
     private final By REFERENCES_INPUT_LOCATOR = By.id("reference");
     private final By DESCRIPTION_INPUT_LOCATOR = By.id("description_display");
@@ -46,21 +50,25 @@ public class AddMilestonePage extends BasePage {
 
     public AddMilestonePage setNameInput(String text) {
         getNameInput().write(text);
+        logger.debug(text);
         return this;
     }
 
     public AddMilestonePage setReferencesInput(String text) {
         getReferencesInput().write(text);
+        logger.debug(text);
         return this;
     }
 
     public AddMilestonePage setDescriptionInput(String text) {
         getDescriptionInput().write(text);
+        logger.debug(text);
         return this;
     }
 
     public AddMilestonePage setMilestoneCompletedCheckbox(boolean flag) {
         getMilestoneCompletedCheckbox().setFlag(flag);
+        logger.debug(flag);
         return this;
     }
     public MilestonesPage clickAddMilestoneButton() {

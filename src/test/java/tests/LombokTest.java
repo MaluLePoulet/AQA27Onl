@@ -4,10 +4,13 @@ import models.Milestone;
 import models.Project;
 import models.TestCase;
 import models.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LombokTest {
+    private Logger logger = LogManager.getLogger(this);
 
     @Test
     public void lombokUserTest() {
@@ -15,15 +18,15 @@ public class LombokTest {
         actualUser.setId(1);
         actualUser.setUsername("Username");
         actualUser.setPassword("Password");
-        System.out.println(actualUser);
+        logger.info(actualUser);
 
         User expectedlUser = new User();
         expectedlUser.setUsername("Username");
         expectedlUser.setPassword("Password");
-        System.out.println(expectedlUser);
+        logger.info(expectedlUser);
 
-        System.out.println(actualUser);
-        System.out.println(expectedlUser.hashCode());
+        logger.info(actualUser.hashCode());
+        logger.info(expectedlUser.hashCode());
 
         Assert.assertEquals(actualUser, expectedlUser);
     }
@@ -36,17 +39,17 @@ public class LombokTest {
         actualProject.setAnnouncement("Announcement");
         actualProject.setProjectType(2);
         actualProject.setTCApprovalsEnabled(true);
-        System.out.println(actualProject);
+        logger.info(actualProject);
 
         Project expectedProject = new Project();
         expectedProject.setName("Project Name");
         expectedProject.setAnnouncement("Announcement");
         expectedProject.setProjectType(2);
         expectedProject.setTCApprovalsEnabled(true);
-        System.out.println(expectedProject);
+        logger.info(expectedProject);
 
-        System.out.println(actualProject.hashCode());
-        System.out.println(expectedProject.hashCode());
+        logger.info(actualProject.hashCode());
+        logger.info(expectedProject.hashCode());
 
         Assert.assertNotEquals(actualProject, expectedProject);
     }
@@ -74,8 +77,8 @@ public class LombokTest {
 
         TestCase expectedTestCase = actualTestCase.toBuilder().build();
 
-        System.out.println(actualTestCase);
-        System.out.println(expectedTestCase);
+        logger.info(actualTestCase);
+        logger.info(expectedTestCase);
 
         Assert.assertEquals(actualTestCase, expectedTestCase);
     }
@@ -88,7 +91,7 @@ public class LombokTest {
                         "Reference",
                         "Description",
                         true);
-        System.out.println(actualMilestone);
+        logger.info(actualMilestone);
 
         Milestone expectedMilestone =
                 new Milestone(
@@ -96,10 +99,10 @@ public class LombokTest {
                         "Reference",
                         "Description",
                         true);
-        System.out.println(expectedMilestone);
+        logger.info(expectedMilestone);
 
-        System.out.println(actualMilestone.hashCode());
-        System.out.println(expectedMilestone.hashCode());
+        logger.info(actualMilestone.hashCode());
+        logger.info(expectedMilestone.hashCode());
 
         Assert.assertEquals(actualMilestone, expectedMilestone);
     }

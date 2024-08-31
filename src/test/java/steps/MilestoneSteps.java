@@ -17,6 +17,7 @@ public class MilestoneSteps extends BaseStep {
                 .setDescriptionInput(milestone.getDescription())
                 .setMilestoneCompletedCheckbox(milestone.isMilestoneCompleted())
                 .clickAddMilestoneButton();
+
         return milestonesPage;
     }
 }
