@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoggerTest {
-    private Logger logger = LogManager.getLogger(LoggerTest.class);
+    private Logger logger = LogManager.getLogger(this);
 
     @Test
     public void logLevelsTest() {
