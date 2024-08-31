@@ -25,7 +25,6 @@ public class MilestonesTest extends BaseTest {
 
         actions
                 .moveToElement(targetElements.get(0))
-                .pause(Duration.ofSeconds(1)) // просто посмотреть
                 .click(waitsService.presenceOfElementLocated(By.className("icon-small-openswindow")))
                 .build()
                 .perform();
