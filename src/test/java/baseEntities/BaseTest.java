@@ -24,7 +24,7 @@ public class BaseTest {
     protected WaitsService waitsService;
     protected Faker faker;
 
-    // Test Data
+    //Test Data
     public User admin;
 
     @BeforeMethod
@@ -40,11 +40,7 @@ public class BaseTest {
 
         driver.get(ReadProperties.getUrl());
 
-        admin = new User();
-        admin.setUsername(ReadProperties.username());
-        admin.setPassword(ReadProperties.password());
 
-        userSteps.successfulLogin(admin);
     }
 
     @AfterMethod

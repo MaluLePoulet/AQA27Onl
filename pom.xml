@@ -19,6 +19,7 @@
         <allure.version>2.29.0</allure.version>
         <aspectj.version>1.9.20.1</aspectj.version>
         <faker.version>1.0.2</faker.version>
+        <lombok.version>1.18.34</lombok.version>
         <allure.results.directory>target/allure-results</allure.results.directory>
     </properties>
 
@@ -66,6 +67,13 @@
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>${faker.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
