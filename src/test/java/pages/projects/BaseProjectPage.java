@@ -1,16 +1,13 @@
 package pages.projects;
 
 import baseEntities.BasePage;
-import elements.Input;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class BaseProjectPage extends BasePage {
     private final By NAME_INPUT_LOCATOR = By.id("name");
-
-    public BaseProjectPage(WebDriver driver) {
-        super(driver);
-    }
 
     @Override
     protected By getPageIdentifier() {
@@ -22,7 +19,7 @@ public class BaseProjectPage extends BasePage {
         return "";
     }
 
-    public Input getNameInput() {
-        return new Input(pageDriver, NAME_INPUT_LOCATOR);
+    public SelenideElement getNameInput() {
+        return $(NAME_INPUT_LOCATOR);
     }
 }

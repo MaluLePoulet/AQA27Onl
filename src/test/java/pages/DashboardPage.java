@@ -2,7 +2,6 @@ package pages;
 
 import baseEntities.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pages.menus.SideMenuPage;
 import pages.menus.TopMenuPage;
 
@@ -12,11 +11,9 @@ public class DashboardPage extends BasePage {
     public SideMenuPage sideMenuPage;
     private static final By HEADER_TITLE_LABEL_LOCATOR = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
 
-    public DashboardPage(WebDriver driver) {
-        super(driver);
-
-       // topMenuPage = new TopMenuPage(driver);
-       // sideMenuPage = new SideMenuPage(driver);
+    public DashboardPage() {
+        topMenuPage = new TopMenuPage();
+        sideMenuPage = new SideMenuPage();
     }
 
     @Override

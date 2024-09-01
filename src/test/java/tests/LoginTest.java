@@ -12,18 +12,16 @@ import pages.LoginPage;
 public class LoginTest extends BaseTest {
 
     @Test
-    //пример, как можно делать, но будет много дубликата
     public void successfulLoginTest() {
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage();
         loginPage.setEmailValue(ReadProperties.username());
         loginPage.setPasswordValue(ReadProperties.password());
         loginPage.clickLogin();
 
-        DashboardPage dashboardPage = new DashboardPage(driver);
+        DashboardPage dashboardPage = new DashboardPage();
         Assert.assertTrue(dashboardPage.isPageOpen());
     }
 
-    //пример ос степами
     @Test
     public void shortSuccessfulLoginTest() {
         Assert.assertTrue

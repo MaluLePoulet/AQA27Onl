@@ -1,20 +1,16 @@
 package pages;
 
 import baseEntities.BasePage;
-import elements.DropDown;
-import elements.UIElement;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class AddTestCasePage extends BasePage {
     private final static String pagePath = "/index.php?/cases/add/1";
     private final By HEADER_TITLE_LABEL_LOCATOR = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'Add Test Case')]");
     private final By TEMPLATE_DROP_DOWN_LOCATOR = By.id("template_id_chzn");
     private final By TYPE_DROP_DOWN_LOCATOR = By.id("type_id_chzn");
-
-    public AddTestCasePage(WebDriver driver) {
-        super(driver);
-    }
 
     @Override
     protected By getPageIdentifier() {
@@ -26,16 +22,16 @@ public class AddTestCasePage extends BasePage {
         return pagePath;
     }
 
-    public UIElement getHeaderTitle() {
-        return new UIElement(pageDriver, HEADER_TITLE_LABEL_LOCATOR);
+    public SelenideElement getHeaderTitle() {
+        return $(HEADER_TITLE_LABEL_LOCATOR);
     }
 
-    public DropDown getTemplateDropDown() {
-        return new DropDown(pageDriver, TEMPLATE_DROP_DOWN_LOCATOR);
+    public SelenideElement getTemplateDropDown() {
+        return $(TEMPLATE_DROP_DOWN_LOCATOR);
     }
 
-    public DropDown getTypeDropDown() {
-        return new DropDown(pageDriver, TYPE_DROP_DOWN_LOCATOR);
+    public SelenideElement getTypeDropDown() {
+        return $(TYPE_DROP_DOWN_LOCATOR);
     }
 
     public void openPageByUrl() {

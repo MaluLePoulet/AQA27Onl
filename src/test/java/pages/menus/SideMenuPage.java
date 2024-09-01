@@ -1,17 +1,14 @@
 package pages.menus;
 
 import baseEntities.BasePage;
-import elements.Button;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class SideMenuPage extends BasePage {
     private final By SIDEBAR_LOCATOR = By.id("sidebar");
     private final By ADD_TEST_CASE_BUTTON_LOCATOR = By.id("sidebar-cases-add");
-
-    public SideMenuPage(WebDriver driver) {
-        super(driver);
-    }
 
     @Override
     protected By getPageIdentifier() {
@@ -23,7 +20,7 @@ public class SideMenuPage extends BasePage {
         return "";
     }
 
-    public Button getAddTestCaseButton() {
-        return new Button(pageDriver, ADD_TEST_CASE_BUTTON_LOCATOR);
+    public SelenideElement getAddTestCaseButton() {
+        return $(ADD_TEST_CASE_BUTTON_LOCATOR);
     }
 }
