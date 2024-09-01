@@ -2,9 +2,10 @@ package tests;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static com.codeborne.selenide.Condition.*;
 
 public class ItemTest extends BaseTest {
 
@@ -15,12 +16,15 @@ public class ItemTest extends BaseTest {
 
     @Test
     public void addItemToCartTest() {
-        Assert.assertTrue(itemStep.addItemToCart().getInventoryItemElement().isDisplayed());
+        itemStep.addItemToCart().getInventoryItemElement()
+                .shouldBe(visible)
+                .shouldHave(text("Sauce Labs Backpack"));
     }
 
     @Test
     public void removeItemFromCartTest() {
-        itemStep.addItemToCart();
-        Assert.assertFalse(itemStep.removeItemFromCart().getRemovedItemElement().isDisplayed());
+        //itemStep.addItemToCart(); если выполнять через mvn clean test, тогда эта строка не нужна, если выполнять отдельно этот тест, тогда нужна
+        itemStep.removeItemFromCart().getRemovedItemElement()
+                .shouldNotBe(visible);
     }
 }

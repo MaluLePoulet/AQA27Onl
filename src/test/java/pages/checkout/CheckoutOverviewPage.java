@@ -1,28 +1,26 @@
 package pages.checkout;
 
 import baseEntities.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.codeborne.selenide.SelenideElement;
 import pages.TopMenuPage;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class CheckoutOverviewPage extends BasePage {
-    private final By FINISH_BUTTON_LOCATOR = By.id("finish");
+    private final SelenideElement FINISH_BUTTON_LOCATOR = $("#finish");
     public TopMenuPage topMenuPage;
 
-    public CheckoutOverviewPage(WebDriver driver) {
-        super(driver);
-
-        topMenuPage = new TopMenuPage(driver);
+    public CheckoutOverviewPage() {
+        topMenuPage = new TopMenuPage();
     }
 
     @Override
-    protected By getPageIdentifier() {
+    protected SelenideElement getPageIdentifier() {
         return FINISH_BUTTON_LOCATOR;
     }
 
-    public WebElement getFinishButton() {
-        return pageDriver.findElement(FINISH_BUTTON_LOCATOR);
+    public SelenideElement getFinishButton() {
+        return FINISH_BUTTON_LOCATOR;
     }
 
     public void clickFinishButton() {

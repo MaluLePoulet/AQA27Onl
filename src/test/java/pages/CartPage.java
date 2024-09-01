@@ -1,32 +1,30 @@
 package pages;
 
 import baseEntities.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class CartPage extends BasePage {
-    private final By CHECKOUT_BUTTON_LOCATOR = By.id("checkout");
-    private final By REMOVED_ITEM_LOCATOR = By.className("removed_cart_item");
+    private final SelenideElement CHECKOUT_BUTTON_LOCATOR = $("#checkout");
+    private final SelenideElement REMOVED_ITEM_LOCATOR = $(".removed_cart_item");
     public TopMenuPage topMenuPage;
 
-    public CartPage(WebDriver driver) {
-        super(driver);
-
-        topMenuPage = new TopMenuPage(driver);
+    public CartPage() {
+        topMenuPage = new TopMenuPage();
     }
 
     @Override
-    protected By getPageIdentifier() {
+    protected SelenideElement getPageIdentifier() {
         return CHECKOUT_BUTTON_LOCATOR;
     }
 
-    public WebElement getCheckoutButton() {
-        return pageDriver.findElement(CHECKOUT_BUTTON_LOCATOR);
+    public SelenideElement getCheckoutButton() {
+        return CHECKOUT_BUTTON_LOCATOR;
     }
 
-    public WebElement getRemovedItemElement() {
-        return pageDriver.findElement(REMOVED_ITEM_LOCATOR);
+    public SelenideElement getRemovedItemElement() {
+        return REMOVED_ITEM_LOCATOR;
     }
 
     public void clickCheckoutButton() {

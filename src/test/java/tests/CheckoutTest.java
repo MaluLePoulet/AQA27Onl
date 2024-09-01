@@ -2,9 +2,10 @@ package tests;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CartPage;
+
+import static com.codeborne.selenide.Condition.*;
 
 public class CheckoutTest extends BaseTest {
 
@@ -12,12 +13,14 @@ public class CheckoutTest extends BaseTest {
     public void successfulCheckoutTest() {
         userStep.successfulLogin(ReadProperties.usernameStandard(), ReadProperties.password());
         itemStep.addItemToCart();
-        CartPage cartPage = new CartPage(driver);
+
+        CartPage cartPage = new CartPage();
         cartPage.topMenuPage.clickShoppingCartElement();
         cartPage.clickCheckoutButton();
 
-        Assert.assertEquals
-                (checkoutStep.successfulCheckout().getCheckoutCompleteMessageElement().getText(),
-                        "Thank you for your order!");
+        checkoutStep.successfulCheckout().getCheckoutCompleteMessageElement()
+                .should(exist)
+                .shouldBe(visible)
+                .shouldHave(text("Thank you for your order!"));
     }
 }

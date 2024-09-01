@@ -1,24 +1,23 @@
 package pages;
 
 import baseEntities.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class TopMenuPage extends BasePage {
-    private final By SHOPPING_CART_CONTAINER_LOCATOR = By.id("shopping_cart_container");
+    private final SelenideElement SHOPPING_CART_CONTAINER_LOCATOR = $("#shopping_cart_container");
 
-    public TopMenuPage(WebDriver driver) {
-        super(driver);
+    public TopMenuPage() {
     }
 
     @Override
-    protected By getPageIdentifier() {
-        return null;
+    protected SelenideElement getPageIdentifier() {
+        return SHOPPING_CART_CONTAINER_LOCATOR;
     }
 
-    public WebElement getShoppingCartElement() {
-        return pageDriver.findElement(SHOPPING_CART_CONTAINER_LOCATOR);
+    public SelenideElement getShoppingCartElement() {
+        return SHOPPING_CART_CONTAINER_LOCATOR;
     }
 
     public void clickShoppingCartElement() {

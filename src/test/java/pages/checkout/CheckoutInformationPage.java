@@ -1,56 +1,53 @@
 package pages.checkout;
 
 import baseEntities.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.codeborne.selenide.SelenideElement;
 import pages.TopMenuPage;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class CheckoutInformationPage extends BasePage {
-    private final By FIRST_NAME_INPUT_LOCATOR = By.id("first-name");
-    private final By LAST_NAME_INPUT_LOCATOR = By.id("last-name");
-    private final By ZIP_CODE_INPUT_LOCATOR = By.id("postal-code");
-    private final By CONTINUE_BUTTON_LOCATOR = By.id("continue");
+    private final SelenideElement FIRST_NAME_INPUT_LOCATOR = $("#first-name");
+    private final SelenideElement LAST_NAME_INPUT_LOCATOR = $("#last-name");
+    private final SelenideElement ZIP_CODE_INPUT_LOCATOR = $("#postal-code");
+    private final SelenideElement CONTINUE_BUTTON_LOCATOR = $("#continue");
     public TopMenuPage topMenuPage;
 
-
-    public CheckoutInformationPage(WebDriver driver) {
-        super(driver);
-
-        topMenuPage = new TopMenuPage(driver);
+    public CheckoutInformationPage() {
+        topMenuPage = new TopMenuPage();
     }
 
     @Override
-    protected By getPageIdentifier() {
+    protected SelenideElement getPageIdentifier() {
         return CONTINUE_BUTTON_LOCATOR;
     }
 
-    public WebElement getFirstNameInput() {
-        return pageDriver.findElement(FIRST_NAME_INPUT_LOCATOR);
+    public SelenideElement getFirstNameInput() {
+        return FIRST_NAME_INPUT_LOCATOR;
     }
 
-    public WebElement getLastNameInput() {
-        return pageDriver.findElement(LAST_NAME_INPUT_LOCATOR);
+    public SelenideElement getLastNameInput() {
+        return LAST_NAME_INPUT_LOCATOR;
     }
 
-    public WebElement getZipCodeInput() {
-        return pageDriver.findElement(ZIP_CODE_INPUT_LOCATOR);
+    public SelenideElement getZipCodeInput() {
+        return ZIP_CODE_INPUT_LOCATOR;
     }
 
-    public WebElement getContinueButton() {
-        return pageDriver.findElement(CONTINUE_BUTTON_LOCATOR);
+    public SelenideElement getContinueButton() {
+        return CONTINUE_BUTTON_LOCATOR;
     }
 
     public void setFirstNameValue() {
-        getFirstNameInput().sendKeys("Limon");
+        getFirstNameInput().val("Limon");
     }
 
     public void setLastNameValue() {
-        getLastNameInput().sendKeys("Limonov");
+        getLastNameInput().val("Limonov");
     }
 
     public void setZipCodeValue() {
-        getZipCodeInput().sendKeys("123456");
+        getZipCodeInput().val("123456");
     }
 
     public void clickContinueButton() {

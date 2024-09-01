@@ -1,33 +1,36 @@
 package baseEntities;
 
+import com.codeborne.selenide.AssertionMode;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.testng.SoftAsserts;
 import configuration.ReadProperties;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import services.BrowsersService;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 import steps.CheckoutStep;
 import steps.ItemStep;
 import steps.UserStep;
 
+import static com.codeborne.selenide.Selenide.open;
+
+@Listeners(SoftAsserts.class)
 public class BaseTest {
-    protected WebDriver driver;
     protected UserStep userStep;
     protected ItemStep itemStep;
     protected CheckoutStep checkoutStep;
 
-    @BeforeMethod
-    public void setUp() {
-        driver = new BrowsersService().getDriver();
-
-        userStep = new UserStep(driver);
-        itemStep = new ItemStep(driver);
-        checkoutStep = new CheckoutStep(driver);
-
-        driver.get(ReadProperties.getUrl());
+    @BeforeSuite
+    public void beforeSuite() {
+        Configuration.baseUrl = ReadProperties.getUrl();
+        Configuration.assertionMode = AssertionMode.SOFT;
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
+    @BeforeMethod
+    public void setUp() {
+        open(ReadProperties.getUrl());
+
+        userStep = new UserStep();
+        itemStep = new ItemStep();
+        checkoutStep = new CheckoutStep();
     }
 }

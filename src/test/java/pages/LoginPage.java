@@ -1,47 +1,46 @@
 package pages;
 
 import baseEntities.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
-    private final By USERNAME_INPUT_LOCATOR = By.id("user-name");
-    private final By PASSWORD_INPUT_LOCATOR = By.id("password");
-    private final By LOGIN_BUTTON_LOCATOR = By.id("login-button");
-    private final By ERROR_MESSAGE_ELEMENT_LOCATOR = By.className("error-message-container");
+    private final SelenideElement USERNAME_INPUT_LOCATOR = $("#user-name");
+    private final SelenideElement PASSWORD_INPUT_LOCATOR = $("#password");
+    private final SelenideElement LOGIN_BUTTON_LOCATOR = $("#login-button");
+    private final SelenideElement ERROR_MESSAGE_ELEMENT_LOCATOR = $(".error-message-container");
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
     }
 
     @Override
-    protected By getPageIdentifier() {
+    protected SelenideElement getPageIdentifier() {
         return LOGIN_BUTTON_LOCATOR;
     }
 
-    public WebElement getUsernameInput() {
-        return pageDriver.findElement(USERNAME_INPUT_LOCATOR);
+    public SelenideElement getUsernameInput() {
+        return USERNAME_INPUT_LOCATOR;
     }
 
-    public WebElement getPasswordInput() {
-        return pageDriver.findElement(PASSWORD_INPUT_LOCATOR);
+    public SelenideElement getPasswordInput() {
+        return PASSWORD_INPUT_LOCATOR;
     }
 
-    public WebElement getButton() {
-        return pageDriver.findElement(LOGIN_BUTTON_LOCATOR);
+    public SelenideElement getButton() {
+        return LOGIN_BUTTON_LOCATOR;
     }
 
-    public WebElement getErrorMessageElement() {
-        return pageDriver.findElement(ERROR_MESSAGE_ELEMENT_LOCATOR);
+    public SelenideElement getErrorMessageElement() {
+        return ERROR_MESSAGE_ELEMENT_LOCATOR;
     }
 
     public void setUsernameValue(String value) {
-        getUsernameInput().sendKeys(value);
+        getUsernameInput().val(value);
     }
 
     public void setPasswordValue(String value) {
-        getPasswordInput().sendKeys(value);
+        getPasswordInput().val(value);
     }
 
     public void clickLoginButton() {
