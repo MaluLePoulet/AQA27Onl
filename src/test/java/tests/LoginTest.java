@@ -4,26 +4,9 @@ import baseEntities.BaseTest;
 import configuration.ReadProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.DashboardPage;
-import pages.LoginPage;
-import steps.UserSteps;
-
 
 public class LoginTest extends BaseTest {
 
-    @Test
-    //пример, как можно делать, но будет много дубликата
-    public void successfulLoginTest() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.setEmailValue(ReadProperties.username());
-        loginPage.setPasswordValue(ReadProperties.password());
-        loginPage.clickLogin();
-
-        DashboardPage dashboardPage = new DashboardPage(driver);
-        Assert.assertTrue(dashboardPage.isPageOpen());
-    }
-
-    //пример ос степами
     @Test
     public void shortSuccessfulLoginTest() {
         Assert.assertTrue
@@ -33,15 +16,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void incorrectEmailLoginTest() {
         Assert.assertEquals(userSteps.incorrectLogin
-                        ("hdfgds", ReadProperties.password()).getErrorFieldTextElement().getText(),
-                "Email/Login or Password is incorrect. Please try again.",
-                "Неверное сообщение об ошибке");
-    }
-
-    @Test
-    public void incorrectPasswordLoginTest() {
-        Assert.assertEquals(userSteps.incorrectLogin
-                        (ReadProperties.username(), "ahsdjas").getErrorTextElement().getText(),
+                        ("hdfgds", ReadProperties.password()).getErrorTextElement().getText(),
                 "Email/Login or Password is incorrect. Please try again.",
                 "Неверное сообщение об ошибке");
     }

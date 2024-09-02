@@ -47,5 +47,4 @@ public class AlertTest extends BaseTest {
         alert.sendKeys("Everything is OK!");
         alert.accept();
     }
-
 }
