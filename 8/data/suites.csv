@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Sep 02 21:00:09 GMT 2024","Mon Sep 02 21:00:10 GMT 2024","516","Main Suite","Regression","tests.LoginTestRegression","tests.LoginTestRegression","incorrectEmailLoginTest","incorrectEmailLoginTest",""
+"passed","Mon Sep 02 21:00:11 GMT 2024","Mon Sep 02 21:00:12 GMT 2024","1032","Main Suite","Regression","tests.LoginTestRegression","tests.LoginTestRegression","shortSuccessfulLoginTest","shortSuccessfulLoginTest",""
