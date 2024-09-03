@@ -18,6 +18,7 @@
         <suiteFileName>TestNG1.xml</suiteFileName>
         <allure.version>2.29.0</allure.version>
         <aspectj.version>1.9.20.1</aspectj.version>
+        <cucmber.version>7.18.1</cucmber.version>
         <allure.results.directory>target/allure-results</allure.results.directory>
     </properties>
 
@@ -59,6 +60,18 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucmber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucmber.version}</version>
         </dependency>
     </dependencies>
 
