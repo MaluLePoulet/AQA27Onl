@@ -1,35 +1,28 @@
 package stepsDefs;
 
+import baseEntities.BaseTest;
 import configuration.ReadProperties;
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.DashboardPage;
 import pages.LoginPage;
-import services.BrowsersService;
 
-public class LoginStepDefs {
-    WebDriver driver;
+public class LoginStepDefs extends BaseTest {
+    private BaseTest baseTest;
+
     LoginPage loginPage;
 
-    // Подготовительные
-    @Given("init browser")
-    public void initBrowser() {
-        driver = new BrowsersService().getDriver();
+    public LoginStepDefs(BaseTest baseTest) {
+        this.baseTest = baseTest;
     }
 
+    // Подготовительные
     @Given("open login page")
     public void openLoginPage() {
-        driver.get(ReadProperties.getUrl());
-        loginPage = new LoginPage(driver);
-    }
-
-    @After
-    public void closeBrowser() {
-        driver.quit();
+        baseTest.driver.get(ReadProperties.getUrl());
+        loginPage = new LoginPage(baseTest.driver);
     }
 
     // Атомарные
@@ -59,7 +52,7 @@ public class LoginStepDefs {
     // Проверочные
     @Then("dashboard page is displayed")
     public void isDashboardPageDisplayed() {
-        Assert.assertTrue(new DashboardPage(driver).isPageOpen());
+        Assert.assertTrue(new DashboardPage(baseTest.driver).isPageOpen());
     }
 
     @Then("error message {string} is displayed")

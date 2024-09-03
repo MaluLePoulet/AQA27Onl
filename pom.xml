@@ -73,6 +73,12 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucmber.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucmber.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

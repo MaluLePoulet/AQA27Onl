@@ -1,4 +1,4 @@
-package pages;
+package pages.menus;
 
 import baseEntities.BasePage;
 import org.openqa.selenium.By;
@@ -14,9 +14,5 @@ public class TopMenuPage extends BasePage {
     @Override
     protected By getPageIdentifier() {
         return TOP_PANEL_LOCATOR;
-    }
-
-    public void logout() {
-
     }
 }
