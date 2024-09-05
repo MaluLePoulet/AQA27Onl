@@ -51,9 +51,9 @@ public class LoginStepDefs extends BaseTest {
 
     @When("login with")
     public void loginWith(DataTable parameters) {
-        Map<String, String> expectedValues = parameters.asMap(String.class, String.class);
-        setUsername(expectedValues.get("username"));
-        setPassword(expectedValues.get("password"));
+        Map<String, String> expectedValues1 = parameters.asMap(String.class, String.class);
+        setUsername(expectedValues1.get("username"));
+        setPassword(expectedValues1.get("password"));
         clickLoginButton();
     }
 

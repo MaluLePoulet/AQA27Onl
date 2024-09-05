@@ -47,4 +47,8 @@ public class DropDown {
             throw new IndexOutOfBoundsException("Size of the list is incorrect");
         }
     }
+
+    public String getText() {
+       return actionElement.getText();
+    }
 }

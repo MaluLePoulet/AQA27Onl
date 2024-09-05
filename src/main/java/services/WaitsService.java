@@ -27,6 +27,10 @@ public class WaitsService {
         return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
+    public WebElement elementToBeClickable(WebElement webElement) {
+        return wait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
     public Boolean invisibilityOf(WebElement webElement) {
         return wait.until(ExpectedConditions.invisibilityOf(webElement));
     }
