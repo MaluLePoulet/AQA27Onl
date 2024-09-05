@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import pages.menus.SideMenuPage;
 import pages.menus.TopMenuPage;
 
-import java.util.List;
-
 public class DashboardPage extends BasePage {
     private static final String pagePath = "/index.php?/dashboard";
     public TopMenuPage topMenuPage;

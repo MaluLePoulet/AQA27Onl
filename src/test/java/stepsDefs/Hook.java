@@ -1,9 +1,7 @@
 package stepsDefs;
 
 import baseEntities.BaseTest;
-import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
-import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import services.BrowsersService;
 

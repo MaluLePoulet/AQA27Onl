@@ -12,7 +12,6 @@ public class LoginPage extends BasePage {
     private final By PASSWORD_INPUT_LOCATOR = By.id("password");
     private static final By LOGIN_BUTTON_LOCATOR = By.id("button_primary");
     private final By ERROR_TEXT_LOCATOR = By.className("error-text");
-    private final By ERROR_FIELD_TEXT_LOCATOR = By.className("loginpage-message");
 
     public LoginPage(WebDriver driver) {
         super(driver);

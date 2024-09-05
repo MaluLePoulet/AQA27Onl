@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.menus.HeaderMenuPage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MilestonesPage extends BasePage {
