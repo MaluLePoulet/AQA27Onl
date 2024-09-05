@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class EditProjectPage extends BaseProjectPage {
-    private final static String pagePath = "/index.php?/admin/projects/edit/1";
+    private final static String pagePath = "/index.php?/admin/projects/edit/45/1";
     private final By EDIT_PROJECT_BUTTON_LOCATOR = By.id("accept");
     private final By SHOW_ANNOUNCEMENT_CHECKBOX_LOCATOR = By.id("show_announcement");
     private final By CASES_STATUSES_CHECKBOX_LOCATOR = By.id("case_statuses_enabled");
