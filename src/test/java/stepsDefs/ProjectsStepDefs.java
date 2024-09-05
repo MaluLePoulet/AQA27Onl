@@ -1,6 +1,7 @@
 package stepsDefs;
 
 import baseEntities.BaseTest;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
@@ -14,6 +15,12 @@ public class ProjectsStepDefs extends BaseTest {
 
     public ProjectsStepDefs(BaseTest baseTest) {
         this.baseTest = baseTest;
+    }
+
+    @Given("aerodynamic rubber car project is open")
+    public void clickOnProjectName() {
+        dashboardPage = new DashboardPage(baseTest.driver);
+        dashboardPage.clickProjectNameButton();
     }
 
     @When("user clicks add project button")
