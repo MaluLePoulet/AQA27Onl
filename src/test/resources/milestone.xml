@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<milestones>
+    <milestone>
+        <name>Milestone</name>
+        <references>Reference</references>
+        <parentId type="int">2</parentId>
+        <description>Description</description>
+        <startDate>09/03/2024</startDate>
+        <endDate>09/02/2024</endDate>
+    </milestone>
+</milestones>
