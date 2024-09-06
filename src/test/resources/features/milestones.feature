@@ -31,6 +31,5 @@ Feature: CRUD test for Milestones
 
   Scenario: Delete Milestone
     Given user clicks milestone button on the top panel
-    When user clicks delete button
-    * user clicks OK on confirmation pop up
+    When user clicks delete milestone button and confirms deletion
     Then message "Successfully deleted the milestone (s)." is displayed

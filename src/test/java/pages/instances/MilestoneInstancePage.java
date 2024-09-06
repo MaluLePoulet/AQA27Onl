@@ -26,5 +26,4 @@ public class MilestoneInstancePage extends BasePage {
     public void clickEditMilestoneButton() {
         getEditMilestoneButton().click();
     }
-
 }

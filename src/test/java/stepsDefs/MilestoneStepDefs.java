@@ -90,6 +90,12 @@ public class MilestoneStepDefs extends BaseTest {
         milestonesPage.clickConfirmDeleteButton();
     }
 
+    @When("user clicks delete milestone button and confirms deletion")
+    public void clickDeleteMilestoneAndConfirm() {
+        userClicksDeleteButton();
+        clickConfirmDeleteButton();
+    }
+
     @Then("add milestone page is open")
     public void isAddMilestonePageOpen() {
         addMilestonePage = new AddMilestonePage(baseTest.driver);

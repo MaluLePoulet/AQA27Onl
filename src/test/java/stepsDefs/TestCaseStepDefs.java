@@ -9,7 +9,6 @@ import pages.AddTestCasePage;
 import pages.instances.TestCaseInstancePage;
 import pages.menus.SideMenuPage;
 
-import java.util.List;
 import java.util.Map;
 
 public class TestCaseStepDefs extends BaseTest {
@@ -29,22 +28,52 @@ public class TestCaseStepDefs extends BaseTest {
         sideMenuPage.clickAddTCButton();
     }
 
-    @When("user creates test case with")
-    public void createTCWith(DataTable parameters) {
-        List<Map<String, String>> expectedValues = parameters.asMaps(String.class, String.class);
-        addTestCasePage.setTitleInput(expectedValues.get(0).get("title"));
-        addTestCasePage.getTemplateDropDown().selectByText(expectedValues.get(0).get("template"));
-        addTestCasePage.getTypeDropDown().selectByText(expectedValues.get(0).get("type"));
-        addTestCasePage.getPriorityDropDown().selectByText(expectedValues.get(0).get("priority"));
-        addTestCasePage.getAutomationTypeDropDown().selectByText(expectedValues.get(0).get("automation type"));
-        addTestCasePage.setPreconditionsInput(expectedValues.get(0).get("preconditions"));
-        addTestCasePage.setStepsInput(expectedValues.get(0).get("steps"));
-        addTestCasePage.clickSaveTCButton();
-    }
-
     @When("user clicks edit test case button")
     public void clickEditTCButton() {
         testCaseInstancePage.clickEditButton();
+    }
+
+    @When("user clicks delete this test case button")
+    public void clickDeleteTCButton() {
+        sideMenuPage.clickDeleteTCButton();
+    }
+
+    @When("user clicks delete permanently button")
+    public void confirmTCDeletion() {
+        testCaseInstancePage.clickDeletePermanentlyTCButton();
+        testCaseInstancePage.clickDeletePermanentlyTCSecondButton();
+    }
+
+    @When("user clicks delete button and confirms deletion")
+    public void clickTCDeleteAndConfirm() {
+        clickDeleteTCButton();
+        confirmTCDeletion();
+    }
+
+    @When("user creates test case with")
+    public void createTCWith(DataTable parameters) {
+        Map<String, String> expectedValues = parameters.asMap(String.class, String.class);
+        addTestCasePage.setTitleInput(expectedValues.get("title"));
+        addTestCasePage.getTemplateDropDown().selectByText(expectedValues.get("template"));
+        addTestCasePage.getTypeDropDown().selectByText(expectedValues.get("type"));
+        addTestCasePage.getPriorityDropDown().selectByText(expectedValues.get("priority"));
+        addTestCasePage.getAutomationTypeDropDown().selectByText(expectedValues.get("automation type"));
+        addTestCasePage.setPreconditionsInput(expectedValues.get("preconditions"));
+        addTestCasePage.setStepsInput(expectedValues.get("steps"));
+        addTestCasePage.clickSaveTCButton();
+    }
+
+    @When("user updates test case to")
+    public void updateTC(DataTable parameters) {
+        Map<String, String> expectedValues = parameters.asMap(String.class, String.class);
+        addTestCasePage.setTitleInput(expectedValues.get("title"));
+        addTestCasePage.getTemplateDropDown().selectByText(expectedValues.get("template"));
+        addTestCasePage.getTypeDropDown().selectByText(expectedValues.get("type"));
+        addTestCasePage.getPriorityDropDown().selectByText(expectedValues.get("priority"));
+        addTestCasePage.getAutomationTypeDropDown().selectByText(expectedValues.get("automation type"));
+        addTestCasePage.setPreconditionsInput(expectedValues.get("preconditions"));
+        addTestCasePage.setStepsInput(expectedValues.get("steps"));
+        addTestCasePage.clickSaveTCButton();
     }
 
     @Then("add test case page is open")
@@ -61,20 +90,20 @@ public class TestCaseStepDefs extends BaseTest {
 
     @Then("created test case is")
     public void isCreatedTC(DataTable parameters) {
-        List<Map<String, String>> expectedValues = parameters.asMaps(String.class, String.class);
+        Map<String, String> expectedValues = parameters.asMap(String.class, String.class);
         Assert.assertEquals(addTestCasePage.getTitleInput().getAttribute("value"),
-                expectedValues.get(0).get("title"));
+                expectedValues.get("title"));
         Assert.assertEquals(addTestCasePage.getTemplateDropDown().getText(),
-                expectedValues.get(0).get("template"));
+                expectedValues.get("template"));
         Assert.assertEquals(addTestCasePage.getTypeDropDown().getText(),
-                expectedValues.get(0).get("type"));
+                expectedValues.get("type"));
         Assert.assertEquals(addTestCasePage.getPriorityDropDown().getText(),
-                expectedValues.get(0).get("priority"));
+                expectedValues.get("priority"));
         Assert.assertEquals(addTestCasePage.getAutomationTypeDropDown().getText(),
-                expectedValues.get(0).get("automation type"));
+                expectedValues.get("automation type"));
         Assert.assertEquals(addTestCasePage.getPreconditionsInput().getText(),
-                expectedValues.get(0).get("preconditions"));
+                expectedValues.get("preconditions"));
         Assert.assertEquals(addTestCasePage.getStepsInput().getText(),
-                expectedValues.get(0).get("steps"));
+                expectedValues.get("steps"));
     }
 }

@@ -11,8 +11,9 @@ import pages.projects.AddProjectPage;
 public class SideMenuPage extends BasePage {
     private final By SIDEBAR_LOCATOR = By.id("sidebar");
     private final By ADD_TEST_CASE_BUTTON_LOCATOR = By.id("sidebar-cases-add");
-    private final By ADD_PROJECT_BUTTON = By.id("sidebar-projects-add");
-    private final By ADD_MILESTONE_BUTTON = By.id("sidebar-milestones-add");
+    private final By ADD_PROJECT_BUTTON_LOCATOR = By.id("sidebar-projects-add");
+    private final By ADD_MILESTONE_BUTTON_LOCATOR = By.id("sidebar-milestones-add");
+    private final By DELETE_TEST_CASE_BUTTON_LOCATOR = By.xpath("//span[@data-testid='editCaseDeleteButton']");
 
     public SideMenuPage(WebDriver driver) {
         super(driver);
@@ -28,11 +29,15 @@ public class SideMenuPage extends BasePage {
     }
 
     public Button getAddProjectButton() {
-        return new Button(pageDriver, ADD_PROJECT_BUTTON);
+        return new Button(pageDriver, ADD_PROJECT_BUTTON_LOCATOR);
     }
 
     public Button getAddMilestoneButton() {
-        return new Button(pageDriver, ADD_MILESTONE_BUTTON);
+        return new Button(pageDriver, ADD_MILESTONE_BUTTON_LOCATOR);
+    }
+
+    public Button getDeleteTCButton() {
+        return new Button(pageDriver, DELETE_TEST_CASE_BUTTON_LOCATOR);
     }
 
     public AddProjectPage clickAddProjectButton() {
@@ -48,5 +53,9 @@ public class SideMenuPage extends BasePage {
     public AddTestCasePage clickAddTCButton() {
         getAddTCButton().click();
         return new AddTestCasePage(pageDriver);
+    }
+
+    public void clickDeleteTCButton() {
+        getDeleteTCButton().click();
     }
 }

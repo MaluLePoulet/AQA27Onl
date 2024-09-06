@@ -9,7 +9,6 @@ public class HeaderMenuPage extends BasePage {
     private static final By HEADER_MENU_LOCATOR = By.id("header");
     private final By NAVIGATION_MILESTONES_BUTTON_LOCATOR = By.id("navigation-milestones");
 
-
     public HeaderMenuPage(WebDriver driver) {
         super(driver);
     }
