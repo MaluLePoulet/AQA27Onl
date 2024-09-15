@@ -1,11 +1,11 @@
-package tests;
+package tests.gui;
 
-import baseEntities.BaseTest;
+import baseEntities.BaseGuiTest;
 import configuration.ReadProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest {
+public class LoginGuiTest extends BaseGuiTest {
 
     @Test
     public void shortSuccessfulLoginTest() {

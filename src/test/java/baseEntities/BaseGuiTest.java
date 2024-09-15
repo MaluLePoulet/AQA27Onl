@@ -10,10 +10,9 @@ import services.BrowsersService;
 import services.WaitsService;
 import steps.UserSteps;
 import utils.InvokedListener;
-import utils.Listener;
 
 @Listeners(InvokedListener.class)
-public class BaseTest {
+public class BaseGuiTest {
     protected WebDriver driver;
     protected UserSteps userSteps;
     protected WaitsService waitsService;
@@ -33,5 +32,4 @@ public class BaseTest {
     public void tearDown() {
         driver.quit();
     }
-
 }
