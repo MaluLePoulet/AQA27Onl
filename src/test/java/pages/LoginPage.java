@@ -55,7 +55,8 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public void clickLogin() {
+    public DashboardPage clickLogin() {
         getLoginButton().click();
+        return new DashboardPage(pageDriver);
     }
 }

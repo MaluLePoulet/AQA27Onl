@@ -24,7 +24,8 @@ public class DashboardPage extends BasePage {
         return HEADER_TITLE_LABEL_LOCATOR;
     }
 
-    public void openPageByUrl() {
+    public DashboardPage openPageByUrl() {
         super.openPageByUrl(pagePath);
+        return new DashboardPage(pageDriver);
     }
 }
