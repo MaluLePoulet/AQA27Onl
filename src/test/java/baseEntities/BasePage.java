@@ -1,7 +1,6 @@
 package baseEntities;
 
 import com.codeborne.selenide.SelenideElement;
-import configuration.ReadProperties;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -18,6 +17,6 @@ public abstract class BasePage {
     }
 
     public void openPageByUrl(String pagePath) {
-        open(ReadProperties.getUrl() + pagePath);
+        open(pagePath);
     }
 }
